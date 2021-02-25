@@ -10,7 +10,7 @@ export function Profile(){
 
                 <div className={styles.items}>
                     <img className={styles.level} src="icons/level.svg"/>
-                    <p>1</p>
+                    <p>Level 1</p>
                 </div>
             </div>
         </div>

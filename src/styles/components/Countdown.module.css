@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: space-evenly;
   
-    background: var(--white);
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     font-size: 5.5rem;
@@ -25,7 +24,7 @@
   }
 
   .first {
-    margin-left: 30%;
+    margin-left: 27%;
     max-width: 50%;
   }
 
@@ -55,6 +54,13 @@
     transition: background-color 2s;
   }
 
-  .start:hover {
-      background: var(--blue-dark);
+  .start:disabled {
+      background: var(--white);
+      color: var(--text);
+      cursor: not-allowed;
   }
+
+  .startActive {
+      background-color: var(--red);
+      color: var(--white);
+  } 

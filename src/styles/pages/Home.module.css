@@ -14,3 +14,15 @@
     gap: 6.25rem;
     align-content: center;
 }
+
+.section {
+    display: flex;
+}
+
+.section1 {
+    width: 50%;
+}
+
+.section2 {
+    margin-top: 5%;
+}

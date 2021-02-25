@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ChallengesContext } from '../contexts/ChallengesContext';
 import styles from "../styles/components/Countdown.module.css";
 
+let countdownTimeout: NodeJS.Timeout;
+
 export function Countdown(){
-    const [time, setTime] = useState(25*60);
+    const { startNewChallenge } = useContext(ChallengesContext);
+    const [time, setTime] = useState(0.1*60); 
     const [active, setActive] = useState(false);
+    const [hasFinished, setHasFinished] = useState(false);
 
     const min = Math.floor(time/60);
     const sec = time % 60;
@@ -15,11 +20,21 @@ export function Countdown(){
         setActive(true);
     }
 
+    const restart = () => {
+        clearTimeout(countdownTimeout);
+        setActive(false);
+        setTime(25*60);
+    }
+
     useEffect(() => {
         if(active && time > 0 ){
-            setTimeout(() => {
+            countdownTimeout = setTimeout(() => {
                 setTime(time-1);
             }, 1000)
+        }else if(active && time === 0){
+            setHasFinished(true);
+            setActive(false);
+            startNewChallenge();
         }
     }, [active, time])
 
@@ -37,12 +52,30 @@ export function Countdown(){
                 </div>
             </div>
 
-            <button type="button" className={styles.start} 
-            onClick={() => {
-                start()
-            }}>
-                Iniciar um Ciclo
-            </button>
+            {hasFinished ? (
+                <button className={styles.start} disabled>
+                    Ciclo Encerrado 
+                </button>) : (
+                <>
+                    {active ? (
+                    <button type="button" className={`${styles.start} ${styles.startActive}`} 
+                        onClick={() => {
+                            restart()
+                    }}>
+                        Cancelar Ciclo     
+                        </button>
+                    ) : (
+                    <button type="button" className={styles.start} 
+                        onClick={() => {
+                            start()
+                        }}>
+                        Iniciar um Ciclo 
+                    </button>
+                    )}
+
+                </>
+            )}
+ 
         </div>
     );
 }
