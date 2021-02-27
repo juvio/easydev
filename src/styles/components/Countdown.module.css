@@ -5,18 +5,14 @@
     font-weight: 600;
     color: var(--title);
     flex-wrap: wrap;
-    max-width: 50%;
+    max-width: 80%;
 }
 
 .countdownContainer > div {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-  
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
     font-size: 5.5rem;
-    text-align: center;
   }
 
   .countdownContainer > div span {
@@ -25,12 +21,12 @@
 
   .first {
     margin-left: 27%;
-    max-width: 50%;
+    max-width: 100%;
   }
 
-  .countdownContainer > div span:last-child {
+  /* .countdownContainer > div span:last-child {
     border-right: 1px solid #f0f1f3;
-  }
+  } */
 
   .countdownContainer > span {
     font-size: 6rem;
@@ -47,7 +43,7 @@
     justify-content: center;
     border: 0;
     border-radius: 5px;
-    background: var(--blue);
+    background: var(--green);
     color: var(--white);
     font-size: 1rem;
     font-weight: 600;
@@ -55,7 +51,7 @@
   }
 
   .start:disabled {
-      background: var(--white);
+      background: gray;
       color: var(--text);
       cursor: not-allowed;
   }

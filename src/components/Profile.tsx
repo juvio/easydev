@@ -12,7 +12,7 @@ export function Profile(){
                 <strong>Juliana Vieira</strong>
 
                 <div className={styles.items}>
-                    <img className={styles.level} src="icons/level.svg"/>
+                    {/* <img className={styles.level} src="icons/level.svg"/> */}
                     <p>Level {level}</p>
                 </div>
             </div>

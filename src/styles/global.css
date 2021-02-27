@@ -31,7 +31,7 @@
 }
 
 body {
-    background-color: var(--background);
+    background-color: black;
     color: var(--text);
 }
 

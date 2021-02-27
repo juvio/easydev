@@ -28,11 +28,6 @@
   
   }
 
-  .items {
-    flex: 1;
-    flex-direction: row;
-  }
-
   .level{
       width: 13px;
   }
